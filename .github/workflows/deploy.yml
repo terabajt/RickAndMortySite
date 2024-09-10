@@ -7,14 +7,15 @@ on:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Configure node
         uses: actions/setup-node@v4
         with:
-         node-version-file: '.nvmrc'
+          node-version-file: '.nvmrc'
 
       - name: Install dependencies
-       run: npm ci
+        run: npm ci
 
       - name: Build app
         run: npm run build
