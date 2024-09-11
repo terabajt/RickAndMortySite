@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       deploy-netlify:
-        type: string
+        type: boolean
         description: Enable Netlify deployment
-        default: 'Yes'
+        default: true
 
 jobs:
   deploy:
