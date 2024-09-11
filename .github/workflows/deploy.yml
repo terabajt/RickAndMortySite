@@ -1,6 +1,6 @@
 # <project_root>/.github/workflows/deploy.yml
 
-name: Hello world!
+name: Deploy Netlify
 
 on:
   workflow_dispatch:
