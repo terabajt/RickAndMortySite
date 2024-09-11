@@ -1,12 +1,18 @@
 # <project_root>/.github/workflows/deploy.yml
 
-name: Deploy Netlify
+name: Deploy to Netlify
 
 on:
   workflow_dispatch:
+    inputs:
+      deploy-netlify:
+        type: boolean
+        description: Enable Netlify deployment
+        default: true
 
 jobs:
   deploy:
+    if: ${{ inputs.deploy-netlify }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
