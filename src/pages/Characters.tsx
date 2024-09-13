@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Character } from '../../lib/rick-and-morty-api-client';
@@ -6,7 +7,7 @@ const Characters = () => {
   const { characters } = useLoaderData() as { characters: Character[] };
 
   useEffect(() => {
-   const fetchData: Partial<PerformanceResourceTiming = performance.getEntriesByName('https://rickandmortyapi.com/api/character',)[0]!;
+   const fetchData: Partial<PerformanceResourceTiming> = performance.getEntriesByName('https://rickandmortyapi.com/api/character',)[0]!;
    fetch(`${import.meta.env.VITE_AWS_MONITORING_API}/prod/monitoring`, {
     method: 'POST',
     mode: 'cors',
