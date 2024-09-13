@@ -7,4 +7,3 @@ out
 /blob-report/
 /playwright/.cache/
 .terraform
-/terraform
