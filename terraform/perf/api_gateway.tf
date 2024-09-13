@@ -45,6 +45,10 @@ resource "aws_api_gateway_account" "account" {
 resource "aws_api_gateway_rest_api" "api" {
   name        = "WebsiteLoadTimeAPI"
   description = "API for website load time monitoring"
+
+   lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_api_gateway_resource" "monitoring_resource" {
