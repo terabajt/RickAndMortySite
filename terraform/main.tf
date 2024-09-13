@@ -7,8 +7,26 @@ terraform {
   }
 
   required_version = ">= 1.5.0"
+  backend "s3" {
+    bucket         = "ofe-terraform-state-bucket-002"
+    key            = "state/terraform.tfstate"
+    region         = "eu-central-1"
+    encrypt        = true
+    dynamodb_table = "terraform-state-lock"
+  }
 }
 
 provider "aws" {
   region = "eu-central-1"
+}
+
+
+module "perf" {
+  source = "./perf"
+
+  lambda_function_name = "website_perf_check"
+
+  # Important - adjust lambda path to your project structure
+  lambda_source_dir = "${path.root}/../lib/lambda-perf"
+
 }
