@@ -23,6 +23,8 @@ jobs:
         run: npm run test
 
       - name: Build app
+        env:
+          VITE_AWS_MONITORING_API: ${{ secrets.VITE_AWS_MONITORING_API }}
         run: npm run build
 
       - name: Configure AWS credentials for S3
