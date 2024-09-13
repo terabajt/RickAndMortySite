@@ -6,7 +6,7 @@ inputs:
     description: 'AWS Access Key ID'
     required: true
   aws-secret-access-key:
-    description: 'AWS Secret
+    description: 'AWS Secret'
     required: true
 
 runs:
