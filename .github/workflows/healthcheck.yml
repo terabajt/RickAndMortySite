@@ -15,7 +15,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Run  healthcheck
-        uses: ./github/actions/notify-slack
+        uses: ./.github/actions/notify-slack
         if: ${{ job.status == 'success' }}
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_TEST_CHANNEL}}
@@ -23,7 +23,7 @@ jobs:
           type: 'good'
 
       - name: Run  healthcheck
-        uses: ./github/actions/notify-slack
+        uses: ./.github/actions/notify-slack
         if: ${{ job.status == 'failure' }}
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_TEST_CHANNEL}}
