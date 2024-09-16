@@ -1,0 +1,24 @@
+name: Notify Slack
+description: Notify Slack on job status
+inputs:
+  slack-webhook-url:
+    description: 'Slack webhook URL'
+    required: true
+  message:
+    description: 'Message to send'
+    required: true
+  type:
+    description: 'Type of message - good, warning or danger'
+    required: false
+    default: 'good'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Call Slack webhook
+      run: node .github/actions/notify-slack/slack-webhook.js
+      shell: bash
+      env:
+        SLACK_WEBHOOK_TEST_CHANNEL: ${{ inputs.slack-webhook-url }}
+        NOTIFY_MESSAGE: ${{ inputs.message }}
+        NOTIFY_TYPE: ${{ inputs.type }}
