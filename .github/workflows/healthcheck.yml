@@ -2,6 +2,8 @@ name: Healthcheck
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
 
 jobs:
   healthcheck:
@@ -13,6 +15,9 @@ jobs:
 
       - name: Configure node
         uses: ./.github/actions/setup-project
+
+      - name: Run unit tests
+        run: npm run test
 
       - name: Run  healthcheck
         uses: ./.github/actions/notify-slack
