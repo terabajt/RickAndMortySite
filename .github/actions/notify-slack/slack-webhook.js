@@ -1,7 +1,7 @@
-const { SLACK_WEBHOOK_URL, NOTIFY_MESSAGE, NOTIFY_TYPE } = process.env;
+const { SLACK_WEBHOOK_TEST_CHANNEL, NOTIFY_MESSAGE, NOTIFY_TYPE } = process.env;
 
-if (!SLACK_WEBHOOK_URL) {
-  throw new Error('SLACK_WEBHOOK_URL is required');
+if (!SLACK_WEBHOOK_TEST_CHANNEL) {
+  throw new Error('SLACK_WEBHOOK_TEST_CHANNEL is required');
 }
 
 if (!NOTIFY_MESSAGE) {
@@ -9,7 +9,7 @@ if (!NOTIFY_MESSAGE) {
 }
 
 const requestConfig = {
-  url: SLACK_WEBHOOK_URL,
+  url: SLACK_WEBHOOK_TEST_CHANNEL,
   message: NOTIFY_MESSAGE,
   type: NOTIFY_TYPE || 'good',
 };
