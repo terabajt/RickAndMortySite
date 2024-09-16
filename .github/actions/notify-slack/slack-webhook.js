@@ -1,3 +1,4 @@
+import axios from 'axios';
 const { SLACK_WEBHOOK_TEST_CHANNEL, NOTIFY_MESSAGE, NOTIFY_TYPE } = process.env;
 
 if (!SLACK_WEBHOOK_TEST_CHANNEL) {
