@@ -1,5 +1,3 @@
-const { text } = require('stream/consumers');
-
 const { SLACK_WEBHOOK_URL, NOTIFY_MESSAGE, NOTIFY_TYPE } = process.env;
 
 if (!SLACK_WEBHOOK_URL) {
